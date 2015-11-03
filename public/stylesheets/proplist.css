@@ -1,0 +1,120 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400);
+
+
+/*** Some other CSS for the look ***/
+/*
+  * {
+  outline: 1px solid red;
+  padding: 10px;
+  }
+*/
+* {
+  border-radius: 0 !important;
+}
+
+#Content {
+  /* background: #fff;*/
+}
+
+#Footer {
+  /*background: #e7e7e7;*/
+}
+
+html, body {
+      height: 100%;
+      padding: 0px;
+      max-height:100%;
+      font-family: 'Roboto', sans-serif;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      background: rgb(248, 248, 248);
+      position:relative;
+      }
+
+@media (min-width: 768px) {
+#map-canvas {
+      height: 100%;
+      width:50%;
+      position: absolute;
+      }
+
+#sidebar{
+      width:50%;
+      height:100%;
+      float:left;
+      position: fixed;
+      display: block;
+      overflow-y: auto;
+      }
+
+#main{
+      width:50%;
+      height:100%;
+      background-size: cover;
+      }
+}
+
+      .propcontainer {
+        margin: 0; 
+        padding: 0; 
+        border: 0;
+      }
+
+      .propheader {
+        margin: 0; 
+        margin-bottom: 0; 
+        border-bottom: 1;
+        background: #ea6153;
+        min-height: 20px;
+      }
+
+      .propheader2 {
+        margin: 0; 
+        margin-bottom: 0; 
+        border-bottom: 1;
+        min-height: 20px;
+      }
+      
+      .propheaderfont {
+        color:white;
+      }
+/*************************************************/
+
+.panel-table-container { 
+  padding : 10px;
+}  
+.panel-table td { 
+   border-top : 1px solid #e7e7e7;
+}
+  
+.panel-table { 
+  border : 1px solid #E7e7e7;
+  height : 300px;
+  width : 100%;
+}
+
+.panel-table .footer td {
+	height: 40px;
+	background-color : #ffffff;
+  padding : 2px;
+}
+
+.panel-table th { 
+	background-color : #ffffff;
+}
+
+.panel-table td { 
+  background-color : #ffffff;
+}
+
+.panel-table th>div{ 
+  max-height : 150px;
+  overflow : hidden;
+  padding : 0px;
+}
+.panel-table .body>td>div{ 
+  max-height : 200px;
+  overflow : hidden;
+  padding : 2px;
+}

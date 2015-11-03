@@ -1,0 +1,40 @@
+extends layout
+
+block content
+	//-div(id="sidebar")
+	.container-fluid(style="height:100%; width: 100%; ")
+		.row.propcontainer
+			.col-sm-6.col-md-6.propcontainer
+				+nav("Project name", "dropdown_menu", "default", "propheader", "white")
+					+nav_item( "index.html", "active" ) 
+						.propheaderfont Home
+					+nav_item( "about.html" ) 
+						.propheaderfont About
+					+nav_item( "contact.html" )
+						.propheaderfont Contact
+					+nav_item_dropdown( "#", "", "white" )( label="Dropdown" )
+						+nav_item( "#" ) Action
+						+nav_item( "#" ) Another action
+						+nav_item( "#" ) Something else here
+						+nav_divider
+						+nav_header Nav header
+						+nav_item( "#" ) Separated link
+						+nav_item( "#" ) One more separated link	
+			.col-sm-6.col-md-6.propcontainer.hidden-sm
+				+nav("Project name", "dropdown_menu", "default", "propheader2")
+					+nav_item( "index.html", "active" ) Home
+					+nav_item( "about.html" ) About
+					+nav_item( "contact.html" ) Contact
+					+nav_item_dropdown( "#" )( label="Dropdown" )
+						+nav_item( "#" ) Action
+						+nav_item( "#" ) Another action
+						+nav_item( "#" ) Something else here
+						+nav_divider
+						+nav_header Nav header
+						+nav_item( "#" ) Separated link
+						+nav_item( "#" ) One more separated link							
+		.row(style="height:100%; width: 100%; margin: 0;")
+			div.col-sm-6.col-md-6(id="sidebar")
+				#propertyList
+			div.col-sm-6.col-sm-offset-6.col-md-6.col-md-offset-6.hidden-sm.main(style="height:100%; width: 100%;")
+				div(id="map-canvas")
