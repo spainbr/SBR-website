@@ -1,7 +1,4 @@
-//- Button trigger modal
-button(type="button", data-toggle="modal", data-target="#myModal") Launch demo modal
-
-a(href="#property", data-toggle="modal", data-target="#modal", onclick = '$("#mymodal").modal("show");') launch demo modal
+//-a(href="#myModal", data-toggle="modal", data-target="#myModal", onclick = '$("#myModal").modal("show");') Open modal 1
 
 //- Modal
 .modal.fade(id="myModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel")
@@ -10,8 +7,18 @@ a(href="#property", data-toggle="modal", data-target="#modal", onclick = '$("#my
 			.modal-header
 				button.close(type="button", data-dismiss="modal", aria-label="Close")
 						span(aria-hidden="true") &times;
-				h.modal-title(id="myModalLabel") Modal title
-			.modal-body text goes here
+				h.modal-title(id="modalLabel") 
+					#propertyTitle
+			.modal-body 
+				.carousel.slide(id="myCarousel")
+					//-ol.carousel-indicators
+					.carousel-inner
+					a.carousel-control.left(href="#myCarousel" data-slide="prev")
+						i.glyphicon.glyphicon-chevron-left
+					a.carousel-control.right(href="#myCarousel" data-slide="next")
+						i.glyphicon.glyphicon-chevron-right
+
 			.modal-footer
-				button.btn.btn-default(type="button", data-dismiss="modal") Close
-				button.btn.btn-primary(type="button") Save changes
+				//-button.btn.btn-default(type="button", data-dismiss="modal") Close
+				//-button.btn.btn-primary(type="button")
+				#propertyFooter

@@ -64,7 +64,8 @@ html( lang="en" )
 					a(href="#contact",onclick = '$("#menu-close").click();') Contact
 
 		block content
-
+	
+		include propview
 	//-Boostrap and Jquery JS
 	script( src='https://maps.googleapis.com/maps/api/js?sensor=false' )
 	script( src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' )
@@ -106,5 +107,67 @@ html( lang="en" )
 						return false;
 					}
 				}
+			});
+		});
+
+	script(type="text/javascript").
+		
+		$("#myCarousel").carousel({interval:false});
+
+		$("#myCarousel").on("slid.bs.carousel", function (){
+			$("#myModal").html($(this).find(".active img").attr("title"));
+		})
+		
+		$('.carousel-control.left').click(function(){
+			$('#myCarousel').carousel('prev');
+		});
+
+		$('.carousel-control.right').click(function(){
+			$('#myCarousel').carousel('next');
+		});
+
+		$(".modal").on("hidden.bs.modal", function(){
+			$(".carousel-inner").html("");
+			$( ".carousel-indicators" ).html("");
+		});
+
+		$('#myModal').on('show.bs.modal', function(e) {
+			var list = [];
+			var item = [];
+
+			if (!data) return e.preventDefault();	
+			var idn = $(e.relatedTarget).data('id');
+
+			var title = data[idn].subtype.uk + " " + data[idn].type.uk + ", " + data[idn].town;
+			//var body = '<img src="' + data[idn].images.image[0].url + '" class="img-responsive">'; 
+			var footer = "the footer";
+
+			var slideshowProperties = data[idn].images.image;
+			var list = $( ".carousel-indicators" );
+			var item = $(".carousel-inner");
+			var i = 0;
+			$.each(slideshowProperties, function( intIndex, objValue ){
+				list.append($('<li data-target="#myCarousel" data-slide-to="' +intIndex+ '"</li>' ));
+				if (i == 0){
+					item.append($('<div class="item active"><img src="' +objValue.url+ '"></div>'));
+					}
+				else{
+					item.append($('<div class="item"><img src="' +objValue.url+ '"></div>'));
+					}
+				i++;
+			});
+
+
+			var modal = $(this);
+			modal.find('#propertyTitle').html(title);
+			//modal.find('#propertyBody').html(body);
+			modal.find('#propertyFooter').html(footer);
+
+		});
+
+		jQuery(function($){
+			$("#propertyClick").click(function(){
+			$("#myModal").modal("show");
+			return false;
 			});
 		});

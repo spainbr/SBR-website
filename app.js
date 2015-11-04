@@ -6,9 +6,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // Database
+//provide a sensible default for local development
+db_name ='SBR';
+mongodb_connection = 'localhost:27017/' + db_name;
+//take advantage of openshift env vars when available:
+if(process.env.OPENSHIFT_MONGODB_DB_URL){
+  mongodb_connection = process.env.OPENSHIFT_MONGODB_DB_URL + db_name;
+}
+
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/SBR');
+var db = monk(mongodb_connection);
 
 // Routes
 var routes = require('./routes/index');

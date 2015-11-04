@@ -64,10 +64,13 @@ function populateTable() {
 function createTable(data) {
                 // Empty content string
                 var tableContent = '';
-
+                var i = 0;
                 $.each(data, function(){
+
                 tableContent += '<div class="panel-table-container col-lg-4 col-md-4 col-sm-6 col-xs-12">';
-                tableContent += '<a href="#"><table class="panel-table">';
+                //tableContent += '<a href="#myModal" data-toggle="modal" data-target="#myModal" onclick=\'$("#myModal").modal("show");\'>';
+                tableContent += '<a href="#myModal" data-toggle="modal" data-target="#myModal" id="propertyClick" data-id="'+i+'">';
+                tableContent += '<table class="panel-table">';
                 tableContent += '<tbody><tr><th><div>' + 
                                 '<img src="' + this.images.image[0].url + '" class="img-responsive">' +
                                 '</div></th></tr>';
@@ -83,7 +86,9 @@ function createTable(data) {
                 tableContent += '</div></td></tr>';
                 tableContent += '<tr class="footer"><td>Price: ' + this.price + " " + this.currency + '</td></tr>';
                 tableContent += '</tbody></table></a></div>';
+                i++;
                 });
-            return tableContent;
+            return unescape(tableContent);
 }
+
 

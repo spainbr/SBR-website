@@ -20,6 +20,10 @@
   /*background: #e7e7e7;*/
 }
 
+.carousel .item {
+  height: 300px;
+}
+
 html, body {
       height: 100%;
       padding: 0px;
