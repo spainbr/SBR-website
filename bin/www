@@ -14,17 +14,23 @@ var app = require('../app');
 var debug = require('debug')('properties:server');
 var http = require('http');
 
-app.set('ipaddr', ip_address);
 app.set('port', port);
+app.set('ip', ip_address);
 
 // Create HTTP server.
 var server = http.createServer(app);
 
 
 // Listen on provided port, on all network interfaces.
+/*
 server.listen(port, ip_address, function () {
   console.log( "Listening on " + ip_address + ", port " + port )
 });
+*/
+server.listen(app.get('port'), app.get('ip'), function () {
+   console.log("✔ Express server listening at %s:%d ", app.get('ip'),app.get('port'));
+});
+
 
 //server.listen(port);
 server.on('error', onError);
